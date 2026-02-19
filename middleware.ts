@@ -22,20 +22,12 @@ export async function middleware(request: NextRequest) {
     }
   )
 
-  // This refreshes the session if expired
+  // Refresh session (do not redirect here)
   await supabase.auth.getUser()
 
   return response
 }
 
 export const config = {
-  matcher: [
-    /*
-     Run middleware on all routes except:
-     - static files
-     - images
-     - favicon
-    */
-    '/((?!_next/static|_next/image|favicon.ico).*)',
-  ],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
 }
