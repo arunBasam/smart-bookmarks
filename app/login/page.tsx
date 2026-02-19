@@ -4,15 +4,17 @@ import { createClient } from '@/lib/supabase/client'
 
 export default function LoginPage() {
   const signIn = async () => {
-    const supabase = createClient()
+  const supabase = createClient()
 
-    await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: 'http://localhost:3000/auth/callback',
-      },
-    })
-  }
+  const origin = window.location.origin
+
+  await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: `${origin}/auth/callback`,
+    },
+  })
+}
 
   return (
     <div className="flex items-center justify-center h-screen">
