@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { createClient } from '@/lib/supabaseClient'
+import { createClient } from '@/lib/supabase/client'
+
 
 export default function AddBookmark() {
   const [title, setTitle] = useState('')

@@ -1,4 +1,5 @@
-import { createClient } from '@/lib/supabaseServer'
+import { createClient } from '@/lib/supabase/server'
+
 import { redirect } from 'next/navigation'
 import AddBookmark from '@/components/AddBookmark'
 import BookmarkList from '@/components/BookmarkList'
